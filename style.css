@@ -1,85 +1,279 @@
-a:link { 
-    color :#e5e7eb; 
-    text-decoration: none; 
-  } 
-  a:visited { 
-    color :#e5e7eb; 
-    text-decoration: none;   } 
-  a:hover { 
-    color :#e5e7eb; 
-    text-decoration: none;   } 
-  a:active { 
-    color :#e5e7eb; 
-    text-decoration: none;   }  
-
-.header {
-    background-color: #1f2937;
-    display: flex;
-    color: #e5e7eb;
-    align-items: center;
-    gap: 16px;
-    padding-left: 50px;
-    padding-right: 50px;
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fce5cd;
+    color: #333;
+    scroll-behavior: smooth;
 }
 
-.header > img {
-    margin-right: auto;
+a {
+    color: #fda64a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 24px;
+}
 
+a:hover {
+    color: #93c47d;
 }
 
 button {
-    color: #e5e7eb;
-    background-color: #3882f6;
-    width: 75px;
+    background-color: #fda64a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.footer {
-    background-color: #1f2937;
-    color: #e5e7eb;
+button:hover {
+    background-color: #93c47d;
+    transform: scale(1.05);
 }
 
+/* Header */
+.header {
+    background-color: #f9cb9c;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.header > img {
+    height: 60px;
+    margin-right: auto;
+    border-radius: 12px;
+}
+
+/* Content One */
 .content-one {
-    background-color: #1f2937;
+    background-color: #fce5cd;
     display: flex;
     justify-content: space-between;
-    padding: 50px;
-    color: #e5e7eb;
-    
+    align-items: center;
+    padding: 60px 50px;
+    animation: fadeIn 1s ease-in-out;
 }
 
+.content-one-info p:first-child {
+    font-size: 32px;
+    color: #fda64a;
+    margin-bottom: 10px;
+}
+
+.content-one-info p:last-child {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Content Two */
 .content-two {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.content-two > p {
+    font-size: 28px;
+    color: #f9cb9c;
+    margin-bottom: 30px;
 }
 
 .content-two-imgs {
     display: flex;
-    border-color: #3882f6;
-    border-radius: 25px;
-    text-align: center;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content-two-img {
+    max-width: 240px;
+    transition: transform 0.3s ease;
+}
+
+.content-two-img:hover {
+    transform: translateY(-8px);
 }
 
 .content-two-img > img {
-    border-radius: 25px;
-    border-color: #3882f6;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.content-two-img > p {
+    font-size: 14px;
+    padding: 10px;
+    color: #555;
+}
+
+/* Content Three */
 .content-three {
-    background-color: #e5e7eb;
+    background-color: #b6d7a8;
+    color: #1f2937;
+    padding: 60px 75px;
     text-align: center;
-    padding-left: 75px;
-    padding-right: 75px;
+    font-style: italic;
+    animation: fadeIn 2s ease-in-out;
 }
 
-.content-four {
-    display: flex;
-    align-items: center;
-    background-color: #3882f6;
-    color: #e5e7eb;
-    gap: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 50px;
+.content-three p:last-child {
+    margin-top: 20px;
+    font-weight: bold;
 }
+
+/* Content Four */
+.content-four {
+    background-color: #93c47d;
+    margin: 50px;
+    padding: 40px 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 1.2s ease-out;
+}
+
+.content-four-info p:first-child {
+    font-size: 24px;
+    color: #fff;
+}
+
+.content-four-info p:last-child {
+    color: #fce5cd;
+}
+
+/* Footer */
+.footer {
+    background-color: #f9cb9c;
+    color: #1f2937;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* === MODAL & FLIP STYLES === */
+#overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 998;
+  }
+  
+  #modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 320px;
+    perspective: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+  }
+  
+  #modal.active,
+  #overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Flip card container */
+  .modal-flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Flip on class toggle */
+  #modal.flipped .modal-flip-card {
+    transform: rotateY(180deg);
+  }
+  
+  /* Faces */
+  .modal-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backface-visibility: hidden;
+  }
+  
+  .modal-face h2 {
+    margin: 0;
+    text-align: center;
+    color: #fda64a;
+  }
+  
+  .modal-face input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .modal-face button {
+    background-color: #93c47d;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-face button:hover {
+    background-color: #76a968;
+  }
+  
+  .toggle-text {
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .toggleForm {
+    color: #fda64a;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  /* Back face rotated */
+  .modal-face.back {
+    transform: rotateY(180deg);
+  }
+  
